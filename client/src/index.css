@@ -1,0 +1,161 @@
+@import url('reset.css');
+
+/** Variables **/
+:root {
+  /** Colors **/
+  --black: #222;
+  --blue: #4477ff;
+  --light-gray: #aaa;
+
+  /** Mixins **/
+  --box-shadow: rgba(0,0,0,1) 0 5px 10px;
+}
+
+body {
+  background-color: var(--black);
+  background-size: 100% auto;
+  color: var(--black);
+  font-family: sans-serif;
+  font-size: 20px;
+}
+.monoton { font-family: 'Monoton', cursive; }
+.rock-salt { font-family: 'Rock Salt', cursive; }
+.audiowide { font-family: 'Audiowide', cursive; }
+.knewave { font-family: 'Knewave', cursive; }
+
+header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+}
+
+form {
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  max-width: 600px;
+  outline: none;
+  padding: 10px;
+  position: relative;
+  width: 50vw;
+}
+
+form .form-field {
+  width: 50%;
+  margin: 5px 0;
+  padding: 0 10px;
+}
+
+form .form-field.full {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+form .form-field.full button {
+  flex: 1;
+}
+
+form .form-field input {
+  text-indent: 0;
+  padding: 0 5px;
+}
+
+form .form-field input,
+form .form-field select {
+  appearance: none;
+  border: 1px solid var(--light-gray);
+  -webkit-appearance: none;
+  border-radius: 20px;
+  display: block;
+  height: 40px;
+  outline: none;
+  text-indent: 5px;
+  width: 100%;
+}
+
+form .form-field input::placeholder,
+form .form-field select {
+  color: var(--light-gray);
+}
+
+form .form-field select {
+  padding-left: 5px;
+}
+
+form .form-field button {
+  background: var(--blue);
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  height: 40px;
+  line-height: 42px;
+  outline: none;
+  padding: 0 15px;
+}
+
+form .form-field button:disabled {
+  cursor: not-allowed;
+}
+
+form .form-field button:hover {
+  background: var(--black);
+  transition: all ease-in-out 250ms;
+}
+
+form .form-field.invalid input,
+form .form-field.invalid select {
+  border: 1px solid rgba(250,50,100,.9);
+}
+
+form .form-field .error {
+  background: rgba(250,50,100,.9);
+  border-radius: 20px;
+  color: white;
+  font-size: .7em;
+  margin-top: 5px;
+  padding: 10px;
+  position: absolute;
+  width: 45%;
+  z-index: 10;
+}
+
+#logo {
+  color: rgba(250,250,250,1);
+  font-size: 6rem;
+  text-shadow: var(--box-shadow);
+}
+
+#logo span {
+  display: inline-block;
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+#gallery {
+  background-position: center center;
+  background-size: cover;
+  bottom: 0;
+  height: 100vh;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
