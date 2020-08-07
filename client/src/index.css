@@ -6,9 +6,11 @@
   --black: #222;
   --blue: #4477ff;
   --light-gray: #aaa;
+  --red: rgba(250,50,100,.9);
 
   /** Mixins **/
   --box-shadow: rgba(0,0,0,1) 0 5px 10px;
+  --transitions: all ease-in-out 250ms;
 }
 
 body {
@@ -31,7 +33,7 @@ header {
   justify-content: center;
   position: absolute;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
 }
 
 form {
@@ -110,7 +112,7 @@ form .form-field button:disabled {
 
 form .form-field button:hover {
   background: var(--black);
-  transition: all ease-in-out 250ms;
+  transition: var(--transitions);
 }
 
 form .form-field.invalid input,
@@ -158,4 +160,42 @@ form .form-field .error {
   top: 0;
   width: 100%;
   z-index: 1;
+}
+
+.message {
+  background: var(--blue);
+  box-shadow: var(--box-shadow);
+  color: white;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transition: var(--transitions);
+  width: 100vw;
+  z-index: 110;
+}
+
+.message .close {
+  background: var(--black);
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  line-height: 30px;
+  opacity: .5;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 30px;
+}
+
+.message .close:hover {
+  opacity: 1;
+  transition: var(--transitions);
+}
+
+.message.alert {
+  background: var(--red);
 }

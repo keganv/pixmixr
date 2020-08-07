@@ -59,7 +59,9 @@ const Index = props => {
   return (
     <>
       <Header onSubmit={getApiResults} onInput={inputHandler} formState={formState} />
-      {apiResults && <Gallery records={records} interval={interval} repeat={repeat} results={apiResults.results} />}
+      {!!apiResults.results.length && <Gallery records={records} interval={interval} repeat={repeat} results={apiResults.results} />}
+      {!apiResults.results.length && <div className="message alert">Bummer. No results were found. <span className="close">X</span></div>}
+
     </>
   );
 };
