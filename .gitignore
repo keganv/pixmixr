@@ -2,8 +2,6 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
 
 # testing
 /coverage
@@ -26,3 +24,6 @@ yarn-error.log*
 api/node_modules/
 client/build/
 client/node_modules/
+api/public/images/
+api/public/javascripts/
+!/client/public/index.html
