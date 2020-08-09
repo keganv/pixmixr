@@ -87,7 +87,7 @@ const Field = props => {
     ) : props.element === 'textarea' ? (
       <textarea
         id={props.id}
-        className={props?.class}
+        className={props.class}
         rows={props.rows || 3}
         onChange={changeHandler}
         onBlur={touchHandler}
