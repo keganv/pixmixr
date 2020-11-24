@@ -26,11 +26,13 @@ const initialFormState = {
 const Index = props => {
   const [loading, setLoading] = useState(true);
   const [apiResults, setApiResults] = useState(null);
+  const [headerClass, setHeaderClass] = useState('');
   const [formState, inputHandler] = useForm(initialFormState, false);
   const keyword = formState.inputs.keyword.value;
   const records = formState.inputs.records.value;
   const interval = Number(formState.inputs.interval.value);
   const repeat = formState.inputs.repeat.value;
+
   const getApiResults = async event => {
     event && event.preventDefault();
     setLoading(true);
@@ -38,6 +40,11 @@ const Index = props => {
     const results = await apiCall.json();
     setApiResults(results);
     setLoading(false);
+    setHeaderClass('minimized');
+  };
+
+  const resetForm = () => {
+    setHeaderClass('');
   };
 
   useEffect(() => {
@@ -58,10 +65,9 @@ const Index = props => {
 
   return (
     <>
-      <Header onSubmit={getApiResults} onInput={inputHandler} formState={formState} />
-      {!!apiResults.results.length && <Gallery records={records} interval={interval} repeat={repeat} results={apiResults.results} />}
+      <Header onSubmit={getApiResults} onInput={inputHandler} formState={formState} resetForm={resetForm} class={headerClass} />
+      {apiResults.results.length && <Gallery records={records} interval={interval} repeat={repeat} results={apiResults.results} />}
       {!apiResults.results.length && <div className="message alert">Bummer. No results were found. <span className="close">X</span></div>}
-
     </>
   );
 };

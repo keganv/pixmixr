@@ -8,8 +8,12 @@ const style = fonts[Math.floor(Math.random() * fonts.length)];
 const Header = props => {
   return (
     <>
-      <header role="banner">
+      <header role="banner" className={props.class}>
         <h1 id="logo" className={style}>PixMix<span>R</span></h1>
+        {
+          props.class === 'minimized' &&
+          <button className="reset" onClick={props.resetForm} type="button">&#9881;</button>
+        }
         <form name="image-form" onSubmit={props.onSubmit}>
           <Field
             element="input"

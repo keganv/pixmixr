@@ -36,7 +36,42 @@ header {
   z-index: 100;
 }
 
-form {
+header.minimized {
+  /* animation: minimize 2s forwards ease-in-out; */
+  height: 50px;
+  position: absolute;
+  top: 0;
+  transition: var(--transitions);
+  z-index: 111;
+}
+
+header.minimized #logo {
+  font-size: 1em;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+
+header.minimized form {
+  transition: var(--transitions);
+  display: none;
+  opacity: 0;
+}
+
+header.minimized button.reset {
+  background: transparent;
+  border: 0;
+  text-shadow: var(--box-shadow);
+  color: white;
+  cursor: pointer;
+  font-size: 40px;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+}
+
+header form {
   align-items: center;
   background: white;
   border-radius: 20px;
@@ -48,6 +83,7 @@ form {
   outline: none;
   padding: 10px;
   position: relative;
+  transition: var(--transitions);
   width: 50vw;
 }
 
