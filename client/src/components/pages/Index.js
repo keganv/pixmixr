@@ -36,7 +36,7 @@ const Index = props => {
   const getApiResults = async event => {
     event && event.preventDefault();
     setLoading(true);
-    const apiCall = await fetch(`http://localhost:9000/images?query=${keyword}&total=${records}`);
+    const apiCall = await fetch(`${process.env.REACT_APP_API_URL}/images?query=${keyword}&total=${records}`);
     const results = await apiCall.json();
     setApiResults(results);
     setLoading(false);
@@ -49,7 +49,7 @@ const Index = props => {
 
   useEffect(() => {
     async function getImages() {
-      const apiCall = await fetch(`http://localhost:9000/images?query=kansas+city&total=1`);
+      const apiCall = await fetch(`${process.env.REACT_APP_API_URL}/images?query=kansas+city&total=1`);
       const results = await apiCall.json();
       setApiResults(results);
       setLoading(false);
